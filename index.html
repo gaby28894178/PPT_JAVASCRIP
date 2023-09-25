@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Piedra Papel Tijeras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- alumnos Gabrielli Gabriel -->
+<div><h1>Juege a piedra papel tijeras</h1></div><hr>
+<div >    <span id="vidas">Vidas: </span><hr><span id="ganadas">Veces Ganadas: </span><hr>
+
+<div class="conten">
+    <label class="conten" for="Piedra">
+       <img id="Piedra" class="conten"  src="https://w7.pngwing.com/pngs/422/99/png-transparent-rock-paper-scissors-computer-icons-scissors-game-white-face-thumbnail.png" alt="Piedra"> </label>
+    
+    <label class="conten" for="Papel">
+        <img id="Papel" class="conten" src="https://media.geeksforgeeks.org/wp-content/uploads/20210705223645/paper.jpeg" alt="Papel"> </label>
+    
+    <label class="conten" for="Tijeras">
+        <img id="Tijeras" class="conten"  src="https://media.geeksforgeeks.org/wp-content/uploads/20210705223721/scissor.jpeg" alt="Tijeras"></label>
+
+
+    </div>
+    <br><br><br>
+</div>
+<div><br><br></div>
+<hr>
+<span id="respuesta">Usted: </span>
+<script>
+    window.addEventListener('load', function() {
+        // Código que se ejecutará cuando la ventana se cargue completamente
+        actualizarVidas();
+    });
+   let intentos  = 3;
+   let con = 0;
+   const contenedorImagenes = document.getElementsByClassName('conten');
+
+    function actualizarVidas() {
+            
+        const vidas = document.getElementById('vidas');
+        vidas.textContent = `Vidas: ${intentos}💚`;
+
+        const gana=document.getElementById('ganadas')
+        gana.textContent = `Veces Ganadas: ${con} 🎈`
+
+
+        if (intentos <= 0) {
+           
+            vidas.textContent = `Usted Esta Muerto 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 `
+
+            gana.textContent = ` Veces Ganadas: ${con}🎈 `
+           
+        }
+    }   
+
+
+    // pc selecciona numero
+    const numeroAzar = Math.floor(Math.random() * 3) + 1;
+    //creo la variable opcion de usuario
+    let opcionUsuario; 
+    
+
+    // Obtiene las referencias a las imágenes por su id
+    const piedra = document.getElementById ('Piedra');
+    const papel = document.getElementById('Papel');
+    const tijeras = document.getElementById('Tijeras');
+   
+    // Agrega un evento de clic a la primera imagen 
+    piedra.addEventListener('click', function() {
+      
+        usuario(1); // Asigna el valor 1
+        limpiar()
+    });
+    
+    // Agrega un evento de clic a la segunda imagen
+    papel.addEventListener('click', function() {
+        usuario(2); // Asigna el valor 2
+        limpiar()
+    });
+    
+    // Agrega un evento de clic a la tercera imagen
+    tijeras.addEventListener('click', function() {
+        usuario(3); // Asigna el valor 3
+        limpiar()
+    });
+    
+    function limpiar(){
+        const vidasSpan = document.getElementById('vidas');
+        const ganadasSpan = document.getElementById('ganadas');
+        // Limpia el contenido de los elementos
+        vidasSpan.textContent = '';
+        ganadasSpan.textContent = '';
+        actualizarVidas()
+        
+       
+
+    }
+    // Función para asignar un valor
+    const usuario=(valor)=> {
+      
+
+
+        opcionUsuario=valor
+         // Luego de asignar la opción del usuario, puedes ejecutar el switch
+    switch (opcionUsuario) {
+        case 1:
+       
+        if (opcionUsuario == numeroAzar){
+            const respuesta = document.getElementById('respuesta');
+            respuesta.textContent = `Empate Los Dos Eligieron  ${opcionUsuario} y el pc eligio ${numeroAzar}`
+           }
+        else if (opcionUsuario ==1 && numeroAzar ==3){
+            const respuesta = document.getElementById('respuesta');
+            respuesta.textContent = `Jugador Gana  Eligieron 🥌    ${opcionUsuario} y el pc eligio ✂ ${numeroAzar}`
+            con++;
+            actualizarVidas()
+        }
+        else if (opcionUsuario ==1 && numeroAzar ==2){
+            const respuesta = document.getElementById('respuesta');
+            respuesta.textContent = `Jugador Pierde  Eligieron 🥌 ${opcionUsuario} PC
+             eligio 📋  ${numeroAzar} Gana Pc"`
+             intentos--;
+             actualizarVidas();
+             
+         
+        }
+            break;
+        case 2:
+     
+        if (opcionUsuario== numeroAzar){
+            const respuesta = document.getElementById('respue')
+            respuesta.textContent = `Empate Los Dos Eligieron  ${opcionUsuario} y el pc eligio ${numeroAzar}`
+           }
+        else if (opcionUsuario ==2 && numeroAzar ==1){
+            const respuesta = document.getElementById('respuesta');
+            respuesta.textContent = `Jugador Gana  Eligieron 📋 ${opcionUsuario} y el pc eligio 🥌 ${numeroAzar}`
+            con++;
+            actualizarVidas()
+        }
+        else if (opcionUsuario ==2 && numeroAzar ==3){
+            const respuesta = document.getElementById('respuesta');
+            respuesta.textContent = `Jugador Pierde  Eligieron 🥌 ${opcionUsuario} PC
+             eligio ${numeroAzar} ✂ Gana Pc`
+             intentos--;
+             actualizarVidas();
+             
+        }
+            break;
+        case 3:
+      
+        if (opcionUsuario== numeroAzar){
+            const respuesta = document.getElementById('respuesta');
+            respuesta.textContent = `Empate Los Dos Eligieron  ${opcionUsuario} y el pc eligio ${numeroAzar}`
+           }
+        else if (opcionUsuario ==3 && numeroAzar ==2){
+            const respuesta = document.getElementById('respuesta');
+            respuesta.textContent = `Jugador Gana  Eligieron ✂  ${opcionUsuario} y el pc eligio 📋  ${numeroAzar}`
+            con++;
+            actualizarVidas()
+        }
+        else if (opcionUsuario ==3 && numeroAzar ==1){
+            const respuesta = document.getElementById('respuesta');
+            respuesta.textContent = `Jugador Pierde  Eligieron ✂  ${opcionUsuario} PC
+             eligio 🥌 ${numeroAzar} Gana Pc`
+             intentos--;
+             actualizarVidas();
+             
+        }    
+
+           break;
+        default:
+            alert("Opción no válida");
+      }
+
+
+
+
+
+
+    }
+  
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+img{
+   
+    
+    border-radius: 2%;
+    padding: 1.2%;
+    margin:  0em 0em 0em 9em;
+    border: 1.20px solid chartreuse ;
+    width: 209px;
+    height: 209px;
+    
+}
+
+img:hover{
+    
+    border-radius: 15%;
+    padding: 1.2%;
+    margin: 0em 0em 0em 9em;
+    border: 1.90px solid rgb(255, 149, 0) ;
+    width: 208.89px;
+    height: 208.89px;
+
+}
+
+
+h1{
+   font-size: 52px;
+    color: black;
+    text-align: center;
+}
+
+.conten{
+
+   
+    position: relative;
+    display: inline-block;
+
+}
+span{
+    color: red;
+    font-size: 22px;
+}
+
+@media screen and (max-width: 650px) {
+  
+    img{
+   
+
+        border-radius: 42%;
+        padding: 0.2%;
+        margin: 6em 1em 1em 8em;
+        border: 1.2px solid chartreuse ;
+        width: 100px;
+        height: 100px;
+        
+    }
+    
+    img:hover{
+        
+        border-radius: 42%;
+        padding: 0.2%;
+        margin: 6em 1em 1em 8em;
+        border: 1.50px solid rgb(255, 149, 0) ;
+        width: 101px;
+        height: 101px;
+    
+    }
+    
+    
+}
+
+
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    /* Estilos para pantallas con un ancho mínimo de 601px y un ancho máximo de 900px */
+    .elemento {
+        width: calc(80% - 2cm); /* Ancho total menos 2 centímetros */
+    }
+
+
+
+
+
+
+
+
+    
+}
